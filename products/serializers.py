@@ -22,8 +22,16 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'slug', 'description', 'parent', 'image', 'children']
 
     def get_children(self, obj):
+        # Prevent infinite recursion by limiting depth
+        depth = self.context.get('depth', 0)
+        if depth > 2:  # Maximum 2 levels of nesting
+            return []
+
         if obj.children.exists():
-            return CategorySerializer(obj.children.all(), many=True).data
+            # Pass increased depth to child serializers
+            context = self.context.copy()
+            context['depth'] = depth + 1
+            return CategorySerializer(obj.children.all(), many=True, context=context).data
         return []
 
 
