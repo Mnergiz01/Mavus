@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
+from django.utils.text import slugify
 from decimal import Decimal
 
 
@@ -16,6 +17,11 @@ class Category(models.Model):
         verbose_name = "Kategori"
         verbose_name_plural = "Kategoriler"
         ordering = ['name']
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name, allow_unicode=True)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -64,6 +70,11 @@ class Product(models.Model):
         verbose_name = "Ürün"
         verbose_name_plural = "Ürünler"
         ordering = ['-created_at']
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name, allow_unicode=True)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
