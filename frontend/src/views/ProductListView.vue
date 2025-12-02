@@ -19,65 +19,90 @@
         <p class="text-base text-slate-600">{{ filteredProducts.length }} ürün bulundu</p>
       </div>
 
+      <!-- Filter Toggle Button -->
+      <div v-if="$route.params.slug" class="mb-8 flex justify-center animate-fade-in">
+        <button
+          @click="showFilters = !showFilters"
+          class="px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-500 text-white rounded-xl font-semibold hover:from-amber-500 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-3 group"
+        >
+          <svg class="h-5 w-5 transition-transform duration-300" :class="{ 'rotate-180': showFilters }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
+          </svg>
+          <span>{{ showFilters ? 'Filtreleri Gizle' : 'Filtrele' }}</span>
+          <span v-if="activeFiltersCount > 0" class="ml-2 px-2.5 py-0.5 bg-white text-amber-600 rounded-full text-sm font-bold">
+            {{ activeFiltersCount }}
+          </span>
+        </button>
+      </div>
+
       <!-- Filters Section -->
-      <div v-if="$route.params.slug" class="mb-8 bg-white rounded-2xl shadow-lg p-6 animate-fade-in">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <!-- Metal Type Filter -->
-          <div>
-            <label class="block text-sm font-bold text-slate-700 mb-2">Metal Tipi</label>
-            <select
-              v-model="selectedMetalType"
-              class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all"
-            >
-              <option :value="null">Tümü</option>
-              <option value="gold">Altın</option>
-              <option value="silver">Gümüş</option>
-              <option value="platinum">Platin</option>
-              <option value="rose_gold">Rose Altın</option>
-              <option value="white_gold">Beyaz Altın</option>
-            </select>
-          </div>
+      <transition
+        enter-active-class="transition-all duration-300 ease-out"
+        leave-active-class="transition-all duration-200 ease-in"
+        enter-from-class="opacity-0 -translate-y-4"
+        enter-to-class="opacity-100 translate-y-0"
+        leave-from-class="opacity-100 translate-y-0"
+        leave-to-class="opacity-0 -translate-y-4"
+      >
+        <div v-if="showFilters && $route.params.slug" class="mb-8 bg-white rounded-2xl shadow-lg p-6 animate-fade-in">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <!-- Metal Type Filter -->
+            <div>
+              <label class="block text-sm font-bold text-slate-700 mb-2">Metal Tipi</label>
+              <select
+                v-model="selectedMetalType"
+                class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all"
+              >
+                <option :value="null">Tümü</option>
+                <option value="gold">Altın</option>
+                <option value="silver">Gümüş</option>
+                <option value="platinum">Platin</option>
+                <option value="rose_gold">Rose Altın</option>
+                <option value="white_gold">Beyaz Altın</option>
+              </select>
+            </div>
 
-          <!-- Karat Filter -->
-          <div>
-            <label class="block text-sm font-bold text-slate-700 mb-2">Ayar</label>
-            <select
-              v-model="selectedKarat"
-              class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all"
-            >
-              <option :value="null">Tümü</option>
-              <option v-for="karat in karats" :key="karat" :value="karat">{{ karat }} Ayar</option>
-            </select>
-          </div>
+            <!-- Karat Filter -->
+            <div>
+              <label class="block text-sm font-bold text-slate-700 mb-2">Ayar</label>
+              <select
+                v-model="selectedKarat"
+                class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all"
+              >
+                <option :value="null">Tümü</option>
+                <option v-for="karat in karats" :key="karat" :value="karat">{{ karat }} Ayar</option>
+              </select>
+            </div>
 
-          <!-- Sort By -->
-          <div>
-            <label class="block text-sm font-bold text-slate-700 mb-2">Sırala</label>
-            <select
-              v-model="sortBy"
-              class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all"
-            >
-              <option value="newest">En Yeni</option>
-              <option value="price-low">Fiyat (Düşükten Yükseğe)</option>
-              <option value="price-high">Fiyat (Yüksekten Düşüğe)</option>
-              <option value="name">İsme Göre</option>
-            </select>
-          </div>
+            <!-- Sort By -->
+            <div>
+              <label class="block text-sm font-bold text-slate-700 mb-2">Sırala</label>
+              <select
+                v-model="sortBy"
+                class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all"
+              >
+                <option value="newest">En Yeni</option>
+                <option value="price-low">Fiyat (Düşükten Yükseğe)</option>
+                <option value="price-high">Fiyat (Yüksekten Düşüğe)</option>
+                <option value="name">İsme Göre</option>
+              </select>
+            </div>
 
-          <!-- Clear Filters Button -->
-          <div class="flex items-end">
-            <button
-              @click="clearFilters"
-              class="w-full px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2"
-            >
-              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-              </svg>
-              <span>Filtreleri Temizle</span>
-            </button>
+            <!-- Clear Filters Button -->
+            <div class="flex items-end">
+              <button
+                @click="clearFilters"
+                class="w-full px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2"
+              >
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+                <span>Filtreleri Temizle</span>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </transition>
 
       <!-- Loading -->
       <div v-if="isLoading" class="text-center py-20">
@@ -196,9 +221,18 @@ import { useProducts } from '../composables/useProducts'
 const route = useRoute()
 const { products, isLoading, getAllCategorySlugs, karats, findCategoryBySlug } = useProducts()
 
+const showFilters = ref(false)
 const selectedMetalType = ref(null)
 const selectedKarat = ref(null)
 const sortBy = ref('newest')
+
+const activeFiltersCount = computed(() => {
+  let count = 0
+  if (selectedMetalType.value) count++
+  if (selectedKarat.value) count++
+  if (sortBy.value !== 'newest') count++
+  return count
+})
 
 const title = computed(() => {
   if (route.params.slug) {
@@ -246,8 +280,9 @@ function clearFilters() {
   sortBy.value = 'newest'
 }
 
-// Clear filters when route changes
+// Clear filters and hide filter panel when route changes
 watch(() => route.params.slug, () => {
   clearFilters()
+  showFilters.value = false
 })
 </script>
