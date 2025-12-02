@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.contrib import messages
+from django.core.management import call_command
 from .models import Category, Product, ProductImage
 
 
@@ -8,6 +10,24 @@ class ProductImageInline(admin.TabularInline):
     fields = ('image', 'alt_text', 'is_video', 'order')
 
 
+def setup_production_data(modeladmin, request, queryset):
+    """Admin action to setup production database with sample data"""
+    try:
+        # Clear existing data
+        Product.objects.all().delete()
+        Category.objects.all().delete()
+        ProductImage.objects.all().delete()
+
+        # Load sample data
+        call_command('create_sample_data')
+
+        messages.success(request, '✅ Production data successfully updated! 29 categories and 15 products created.')
+    except Exception as e:
+        messages.error(request, f'❌ Error updating production data: {str(e)}')
+
+setup_production_data.short_description = "🚀 Update Production Database (Clear & Load Sample Data)"
+
+
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'parent', 'slug', 'created_at')
@@ -15,6 +35,7 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     list_filter = ('parent', 'created_at')
     autocomplete_fields = ['parent']
+    actions = [setup_production_data]
 
     fieldsets = (
         ('Genel Bilgiler', {

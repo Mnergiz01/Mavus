@@ -21,6 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework.routers import DefaultRouter
 from products.api_views import CategoryViewSet, ProductViewSet, exchange_rates
+from products.setup_views import setup_production_database, setup_status
 
 router = DefaultRouter()
 router.register(r'categories', CategoryViewSet, basename='category')
@@ -32,6 +33,8 @@ urlpatterns = [
     path("api/exchange-rates/", exchange_rates, name="exchange_rates"),
     path("api/products/", ProductViewSet.as_view({'get': 'list'}), name="product-list"),
     path("api/products/<int:pk>/", ProductViewSet.as_view({'get': 'retrieve'}), name="product-detail"),
+    path("api/setup-production/", setup_production_database, name="setup-production"),
+    path("api/setup-status/", setup_status, name="setup-status"),
 ]
 
 if settings.DEBUG:
