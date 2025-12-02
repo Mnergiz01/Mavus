@@ -116,7 +116,19 @@
           </p>
         </div>
 
-        <div class="relative max-w-7xl mx-auto">
+        <!-- Loading State -->
+        <div v-if="isLoading" class="text-center py-12">
+          <div class="inline-block animate-spin rounded-full h-16 w-16 border-4 border-amber-500 border-t-transparent mb-4"></div>
+          <p class="text-slate-600 text-lg">Ürünler yükleniyor...</p>
+        </div>
+
+        <!-- No Products -->
+        <div v-else-if="bestSellerProducts.length === 0" class="text-center py-12">
+          <p class="text-slate-500 text-lg">Henüz çok satan ürün bulunmamaktadır.</p>
+        </div>
+
+        <!-- Products -->
+        <div v-else class="relative max-w-7xl mx-auto">
           <div class="overflow-hidden">
             <div class="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4">
               <div
@@ -145,7 +157,19 @@
           </p>
         </div>
 
-        <div class="relative max-w-7xl mx-auto">
+        <!-- Loading State -->
+        <div v-if="isLoading" class="text-center py-12">
+          <div class="inline-block animate-spin rounded-full h-16 w-16 border-4 border-amber-500 border-t-transparent mb-4"></div>
+          <p class="text-slate-600 text-lg">Ürünler yükleniyor...</p>
+        </div>
+
+        <!-- No Products -->
+        <div v-else-if="products.length === 0" class="text-center py-12">
+          <p class="text-slate-500 text-lg">Henüz ürün bulunmamaktadır.</p>
+        </div>
+
+        <!-- Products -->
+        <div v-else class="relative max-w-7xl mx-auto">
           <div class="overflow-hidden">
             <div class="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4">
               <div
@@ -174,7 +198,19 @@
           </p>
         </div>
 
-        <div class="relative max-w-7xl mx-auto">
+        <!-- Loading State -->
+        <div v-if="isLoading" class="text-center py-12">
+          <div class="inline-block animate-spin rounded-full h-16 w-16 border-4 border-amber-500 border-t-transparent mb-4"></div>
+          <p class="text-slate-600 text-lg">Ürünler yükleniyor...</p>
+        </div>
+
+        <!-- No Products -->
+        <div v-else-if="recommendedProducts.length === 0" class="text-center py-12">
+          <p class="text-slate-500 text-lg">Henüz önerilen ürün bulunmamaktadır.</p>
+        </div>
+
+        <!-- Products -->
+        <div v-else class="relative max-w-7xl mx-auto">
           <div class="overflow-hidden">
             <div class="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4">
               <div
@@ -329,7 +365,7 @@ import { useExchangeRates } from '../composables/useExchangeRates'
 import ProductCard from '../components/ProductCard.vue'
 
 const router = useRouter()
-const { products, bestSellerProducts, recommendedProducts } = useProducts()
+const { products, bestSellerProducts, recommendedProducts, isLoading } = useProducts()
 const { exchangeRates } = useExchangeRates()
 
 function viewProduct(product) {
