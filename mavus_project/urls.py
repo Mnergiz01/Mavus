@@ -21,7 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.http import JsonResponse
 from rest_framework.routers import DefaultRouter
-from products.api_views import CategoryViewSet, ProductViewSet
+from products.api_views import CategoryViewSet, ProductViewSet, exchange_rates
 
 def home_view(request):
     return JsonResponse({
@@ -42,6 +42,7 @@ urlpatterns = [
     path("", home_view, name="home"),
     path("admin/", admin.site.urls),
     path("api/", include(router.urls)),
+    path("api/exchange-rates/", exchange_rates, name="exchange_rates"),
 ]
 
 if settings.DEBUG:
