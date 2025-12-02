@@ -92,15 +92,7 @@
                 <a href="tel:+903442154651" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">+90 (344) 215 46 51</a>
               </div>
             </li>
-            <li class="flex items-start space-x-3 group">
-              <div class="p-2 bg-slate-800/50 rounded-lg group-hover:bg-amber-500/20 transition-colors">
-                <EnvelopeIcon class="h-5 w-5 text-amber-400" />
-              </div>
-              <div>
-                <p class="text-xs text-slate-500 mb-1">E-posta</p>
-                <a href="mailto:info@mawus.com" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">info@mawus.com</a>
-              </div>
-            </li>
+          
             <li class="flex items-start space-x-3 group">
               <div class="p-2 bg-slate-800/50 rounded-lg group-hover:bg-amber-500/20 transition-colors">
                 <MapPinIcon class="h-5 w-5 text-amber-400" />
