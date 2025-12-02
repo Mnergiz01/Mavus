@@ -14,7 +14,7 @@
             muted
             playsinline
             class="w-full h-full object-cover"
-           src=""
+            src="/video.mp4"
           />
         </div>
 
