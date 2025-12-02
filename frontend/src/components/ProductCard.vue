@@ -119,9 +119,9 @@ defineEmits(['click'])
 const videoRef = ref(null)
 let previewTimeout = null
 
-// Check if product has videos
+// Check if product has videos (disabled for now)
 const hasVideos = computed(() => {
-  return props.product.videos && props.product.videos.length > 0
+  return false
 })
 
 // Current image to display (main image or first additional image)

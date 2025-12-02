@@ -1,17 +1,11 @@
 from rest_framework import serializers
-from .models import Category, Product, ProductImage, ProductVideo
+from .models import Category, Product, ProductImage
 
 
 class ProductImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductImage
-        fields = ['id', 'image', 'alt_text', 'order']
-
-
-class ProductVideoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ProductVideo
-        fields = ['id', 'video', 'thumbnail', 'title', 'order']
+        fields = ['id', 'image', 'alt_text', 'is_video', 'order']
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -38,7 +32,6 @@ class CategorySerializer(serializers.ModelSerializer):
 class ProductListSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True)
     images = ProductImageSerializer(many=True, read_only=True)
-    videos = ProductVideoSerializer(many=True, read_only=True)
     metal_type_display = serializers.CharField(source='get_metal_type_display', read_only=True)
     karat_display = serializers.CharField(source='get_karat_display', read_only=True)
 
@@ -47,14 +40,13 @@ class ProductListSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'name', 'slug', 'category', 'description',
             'metal_type', 'metal_type_display', 'karat', 'karat_display',
-            'weight', 'price', 'stock_code', 'image', 'images', 'videos', 'is_featured', 'is_best_seller', 'is_recommended', 'created_at'
+            'weight', 'price', 'stock_code', 'image', 'images', 'is_featured', 'is_best_seller', 'is_recommended', 'created_at'
         ]
 
 
 class ProductDetailSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True)
     images = ProductImageSerializer(many=True, read_only=True)
-    videos = ProductVideoSerializer(many=True, read_only=True)
     metal_type_display = serializers.CharField(source='get_metal_type_display', read_only=True)
     karat_display = serializers.CharField(source='get_karat_display', read_only=True)
 
@@ -63,6 +55,6 @@ class ProductDetailSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'name', 'slug', 'category', 'description',
             'metal_type', 'metal_type_display', 'karat', 'karat_display',
-            'weight', 'price', 'stock_code', 'image', 'images', 'videos',
+            'weight', 'price', 'stock_code', 'image', 'images',
             'is_available', 'is_featured', 'is_best_seller', 'is_recommended', 'created_at', 'updated_at'
         ]

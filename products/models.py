@@ -9,7 +9,7 @@ class Category(models.Model):
     slug = models.SlugField(max_length=100, unique=True, verbose_name="URL")
     description = models.TextField(blank=True, verbose_name="Açıklama")
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children', verbose_name="Üst Kategori")
-    image = models.ImageField(upload_to='categories/%Y/%m/%d/', blank=True, verbose_name="Kategori Resmi")
+    image = models.URLField(max_length=500, blank=True, verbose_name="Kategori Resmi")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Oluşturulma Tarihi")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Güncellenme Tarihi")
 
@@ -56,7 +56,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))], verbose_name="Fiyat (TL)")
     stock_code = models.CharField(max_length=50, unique=True, blank=True, null=True, verbose_name="Stok Kodu")
 
-    image = models.ImageField(upload_to='products/%Y/%m/%d/', blank=True, verbose_name="Ürün Resmi")
+    image = models.URLField(max_length=500, blank=True, verbose_name="Ürün Resmi")
 
     is_available = models.BooleanField(default=True, verbose_name="Satışta")
     is_featured = models.BooleanField(default=False, verbose_name="Öne Çıkan")
@@ -82,8 +82,9 @@ class Product(models.Model):
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images', verbose_name="Ürün")
-    image = models.ImageField(upload_to='products/%Y/%m/%d/', verbose_name="Resim")
+    image = models.URLField(max_length=500, verbose_name="Resim")
     alt_text = models.CharField(max_length=200, blank=True, verbose_name="Alternatif Metin")
+    is_video = models.BooleanField(default=False, verbose_name="Video mu?")
     order = models.PositiveIntegerField(default=0, verbose_name="Sıra")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Oluşturulma Tarihi")
 
@@ -96,18 +97,3 @@ class ProductImage(models.Model):
         return f"{self.product.name} - Resim"
 
 
-class ProductVideo(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='videos', verbose_name="Ürün")
-    video = models.FileField(upload_to='products/videos/%Y/%m/%d/', verbose_name="Video")
-    thumbnail = models.ImageField(upload_to='products/video_thumbnails/%Y/%m/%d/', blank=True, verbose_name="Video Önizleme")
-    title = models.CharField(max_length=200, blank=True, verbose_name="Başlık")
-    order = models.PositiveIntegerField(default=0, verbose_name="Sıra")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Oluşturulma Tarihi")
-
-    class Meta:
-        verbose_name = "Ürün Videosu"
-        verbose_name_plural = "Ürün Videoları"
-        ordering = ['order', 'created_at']
-
-    def __str__(self):
-        return f"{self.product.name} - Video"

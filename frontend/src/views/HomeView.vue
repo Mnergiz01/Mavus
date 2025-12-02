@@ -6,23 +6,20 @@
       <div
         class="relative h-[75vh] md:h-[80vh] bg-gradient-to-br from-amber-100 via-amber-50 to-slate-100 flex items-end group/hero"
       >
-        <!-- Background Video -->
-        <video
-          autoplay
-          loop
-          muted
-          playsinline
-          class="absolute inset-0 w-full h-full object-cover "
-        >
-          <source src="/video.mp4" type="video/mp4" />
-          <!-- Fallback content if video doesn't load -->
-          <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-amber-100 via-amber-50 to-slate-100">
-            <div class="text-[20rem] md:text-[30rem] opacity-10">💎</div>
-          </div>
-        </video>
+        <!-- Background Image -->
+        <div class="absolute inset-0 w-full h-full">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover"
+           src=""
+          />
+        </div>
 
         <!-- Dark Overlay for better text readability -->
-        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="absolute inset-0 bg-black/50"></div>
 
         <!-- Decorative blur elements (on top of video) -->
         <div class="absolute top-20 left-10 w-96 h-96 bg-amber-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>

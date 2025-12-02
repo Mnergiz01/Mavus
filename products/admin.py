@@ -1,17 +1,11 @@
 from django.contrib import admin
-from .models import Category, Product, ProductImage, ProductVideo
+from .models import Category, Product, ProductImage
 
 
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
     extra = 1
-    fields = ('image', 'alt_text', 'order')
-
-
-class ProductVideoInline(admin.TabularInline):
-    model = ProductVideo
-    extra = 1
-    fields = ('video', 'thumbnail', 'title', 'order')
+    fields = ('image', 'alt_text', 'is_video', 'order')
 
 
 @admin.register(Category)
@@ -39,7 +33,7 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('name', 'description', 'stock_code')
     prepopulated_fields = {'slug': ('name',)}
     list_editable = ('is_available', 'is_featured', 'is_best_seller', 'is_recommended')
-    inlines = [ProductImageInline, ProductVideoInline]
+    inlines = [ProductImageInline]
 
     fieldsets = (
         ('Genel Bilgiler', {
@@ -62,15 +56,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(ProductImage)
 class ProductImageAdmin(admin.ModelAdmin):
-    list_display = ('product', 'alt_text', 'order', 'created_at')
-    list_filter = ('created_at',)
+    list_display = ('product', 'alt_text', 'is_video', 'order', 'created_at')
+    list_filter = ('is_video', 'created_at')
     search_fields = ('product__name', 'alt_text')
-    list_editable = ('order',)
-
-
-@admin.register(ProductVideo)
-class ProductVideoAdmin(admin.ModelAdmin):
-    list_display = ('product', 'title', 'order', 'created_at')
-    list_filter = ('created_at',)
-    search_fields = ('product__name', 'title')
     list_editable = ('order',)
