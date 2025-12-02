@@ -109,7 +109,7 @@
           <p class="text-lg mb-8 opacity-90">Mağazamızda sizi ağırlamaktan mutluluk duyarız</p>
           <div class="flex flex-col md:flex-row items-center justify-center gap-6">
             <a
-              href="https://maps.google.com/?q=İstiklal Mahallesi Prof Dr Necmettin Erbakan Bulvar Uzunçarşı 16/H, Kahramanmaraş"
+              href="https://www.google.com/maps/place/Mawu%C5%9F+Kuyumculuk/@37.5926992,36.8617765,17z/data=!3m1!4b1!4m6!3m5!1s0x152ddb52e9cdc5b7:0xa19f28423279ebca!8m2!3d37.592695!4d36.8643514!16s%2Fg%2F11m5hkbkly?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               class="px-8 py-4 bg-white text-amber-600 rounded-xl font-bold hover:bg-amber-50 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
             >
