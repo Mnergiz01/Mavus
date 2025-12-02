@@ -14,19 +14,6 @@
   }
 }
 
-@layer components {
-  .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-white font-semibold rounded-lg shadow-md hover:from-gold-600 hover:to-gold-700 transform hover:scale-105 transition-all duration-200;
-  }
-
-  .btn-secondary {
-    @apply px-6 py-3 bg-white text-gold-600 font-semibold rounded-lg shadow-md border-2 border-gold-500 hover:bg-gold-50 transform hover:scale-105 transition-all duration-200;
-  }
-
-  .product-card {
-    @apply bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2;
-  }
-}
 
 @layer utilities {
   .animate-blob {

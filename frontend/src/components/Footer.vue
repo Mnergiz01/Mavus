@@ -24,7 +24,7 @@
                 <div class="flex items-center gap-3 mb-2">
                   
                   <h2 class="text-5xl font-serif font-black tracking-[0.15em] bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 bg-clip-text text-transparent drop-shadow-xl">
-                    MAVUŞ
+                    MAWUŞ
                   </h2>
                   
                 </div>

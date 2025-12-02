@@ -5,12 +5,9 @@
       <!-- Large Photo Banner -->
       <div
         class="relative h-[75vh] md:h-[80vh] bg-gradient-to-br from-amber-100 via-amber-50 to-slate-100 flex items-end group/hero"
-        @mouseenter="enableVideoSound"
-        @mouseleave="disableVideoSound"
       >
         <!-- Background Video -->
         <video
-          ref="heroVideo"
           autoplay
           loop
           muted

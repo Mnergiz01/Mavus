@@ -5,11 +5,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .models import Category, Product
 from .serializers import CategorySerializer, ProductListSerializer, ProductDetailSerializer
 import requests
-from decimal import Decimal
-from bs4 import BeautifulSoup
-import re
 import socketio
-import time
 from threading import Event
 
 
