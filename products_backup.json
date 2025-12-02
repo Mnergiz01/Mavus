@@ -1,0 +1,606 @@
+[
+{
+  "model": "products.category",
+  "pk": 5,
+  "fields": {
+    "name": "Bilezik",
+    "slug": "bilezik",
+    "description": "Zarif ve şık bilezik koleksiyonumuz",
+    "parent": null,
+    "image": "",
+    "created_at": "2025-11-29T23:56:37.748Z",
+    "updated_at": "2025-11-29T23:56:37.748Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 6,
+  "fields": {
+    "name": "Kolye",
+    "slug": "kolye",
+    "description": "Benzersiz tasarım kolye modelleri",
+    "parent": null,
+    "image": "",
+    "created_at": "2025-11-29T23:56:37.751Z",
+    "updated_at": "2025-11-29T23:56:37.751Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 7,
+  "fields": {
+    "name": "Yüzük",
+    "slug": "yuzuk",
+    "description": "Özel günleriniz için yüzük seçenekleri",
+    "parent": null,
+    "image": "",
+    "created_at": "2025-11-29T23:56:37.752Z",
+    "updated_at": "2025-11-29T23:56:37.752Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 8,
+  "fields": {
+    "name": "Küpe",
+    "slug": "kupe",
+    "description": "Şıklığınızı tamamlayacak küpe modelleri",
+    "parent": null,
+    "image": "",
+    "created_at": "2025-11-29T23:56:37.752Z",
+    "updated_at": "2025-11-29T23:56:37.752Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 9,
+  "fields": {
+    "name": "Altın Bilezik",
+    "slug": "altin-bilezik",
+    "description": "Saf altın bilezik modelleri",
+    "parent": 5,
+    "image": "",
+    "created_at": "2025-11-29T23:56:37.753Z",
+    "updated_at": "2025-11-29T23:56:37.753Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 10,
+  "fields": {
+    "name": "Gümüş Bilezik",
+    "slug": "gumus-bilezik",
+    "description": "925 ayar gümüş bilezikler",
+    "parent": 5,
+    "image": "",
+    "created_at": "2025-11-29T23:56:37.754Z",
+    "updated_at": "2025-11-29T23:56:37.754Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 11,
+  "fields": {
+    "name": "Pırlanta Bilezik",
+    "slug": "pirlanta-bilezik",
+    "description": "Pırlanta taşlı lüks bilezikler",
+    "parent": 5,
+    "image": "",
+    "created_at": "2025-11-29T23:56:37.755Z",
+    "updated_at": "2025-11-29T23:56:37.755Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 12,
+  "fields": {
+    "name": "Altın Kolye",
+    "slug": "altin-kolye",
+    "description": "Altın kolye modelleri",
+    "parent": 6,
+    "image": "",
+    "created_at": "2025-11-29T23:56:37.755Z",
+    "updated_at": "2025-11-29T23:56:37.755Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 13,
+  "fields": {
+    "name": "İnci Kolye",
+    "slug": "inci-kolye",
+    "description": "Doğal inci kolyeler",
+    "parent": 6,
+    "image": "",
+    "created_at": "2025-11-29T23:56:37.756Z",
+    "updated_at": "2025-11-29T23:56:37.756Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 14,
+  "fields": {
+    "name": "Taşlı Kolye",
+    "slug": "tasli-kolye",
+    "description": "Değerli taş kolyeler",
+    "parent": 6,
+    "image": "",
+    "created_at": "2025-11-29T23:56:37.756Z",
+    "updated_at": "2025-11-29T23:56:37.756Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 15,
+  "fields": {
+    "name": "Nişan Yüzüğü",
+    "slug": "nisan-yuzugu",
+    "description": "Özel gününüz için nişan yüzükleri",
+    "parent": 7,
+    "image": "",
+    "created_at": "2025-11-29T23:56:37.756Z",
+    "updated_at": "2025-11-29T23:56:37.756Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 16,
+  "fields": {
+    "name": "Alyans",
+    "slug": "alyans",
+    "description": "Evlilik için alyans modelleri",
+    "parent": 7,
+    "image": "",
+    "created_at": "2025-11-29T23:56:37.757Z",
+    "updated_at": "2025-11-29T23:56:37.757Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 17,
+  "fields": {
+    "name": "Taşlı Yüzük",
+    "slug": "tasli-yuzuk",
+    "description": "Değerli taşlı yüzükler",
+    "parent": 7,
+    "image": "",
+    "created_at": "2025-11-29T23:56:37.757Z",
+    "updated_at": "2025-11-29T23:56:37.757Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 18,
+  "fields": {
+    "name": "Altın Küpe",
+    "slug": "altin-kupe",
+    "description": "Altın küpe modelleri",
+    "parent": 8,
+    "image": "",
+    "created_at": "2025-11-29T23:56:37.757Z",
+    "updated_at": "2025-11-29T23:56:37.757Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 19,
+  "fields": {
+    "name": "Elmas Küpe",
+    "slug": "elmas-kupe",
+    "description": "Elmas taşlı küpeler",
+    "parent": 8,
+    "image": "",
+    "created_at": "2025-11-29T23:56:37.757Z",
+    "updated_at": "2025-11-29T23:56:37.757Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 20,
+  "fields": {
+    "name": "İnci Küpe",
+    "slug": "inci-kupe",
+    "description": "İnci detaylı küpeler",
+    "parent": 8,
+    "image": "",
+    "created_at": "2025-11-29T23:56:37.758Z",
+    "updated_at": "2025-11-29T23:56:37.758Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "name": "Klasik Altın Bilezik",
+    "slug": "altin-bilezik-1",
+    "category": 9,
+    "description": "22 ayar saf altından üretilmiş klasik bilezik modeli. Günlük kullanım için ideal.",
+    "metal_type": "gold",
+    "karat": "22",
+    "weight": "15.50",
+    "price": "18500.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": true,
+    "is_best_seller": true,
+    "is_recommended": false,
+    "created_at": "2025-11-29T23:56:37.758Z",
+    "updated_at": "2025-11-29T23:56:37.758Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 8,
+  "fields": {
+    "name": "Hasır Altın Bilezik",
+    "slug": "altin-bilezik-2",
+    "category": 9,
+    "description": "Özel hasır işçiliği ile hazırlanmış zarif bilezik.",
+    "metal_type": "gold",
+    "karat": "18",
+    "weight": "12.30",
+    "price": "14200.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": false,
+    "is_best_seller": false,
+    "is_recommended": true,
+    "created_at": "2025-11-29T23:56:37.760Z",
+    "updated_at": "2025-11-29T23:56:37.760Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 9,
+  "fields": {
+    "name": "Mineli Gümüş Bilezik",
+    "slug": "gumus-bilezik-3",
+    "category": 10,
+    "description": "925 ayar gümüşten yapılmış, el işi mine detaylı bilezik.",
+    "metal_type": "silver",
+    "karat": "",
+    "weight": "18.00",
+    "price": "2500.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": true,
+    "is_best_seller": false,
+    "is_recommended": false,
+    "created_at": "2025-11-29T23:56:37.761Z",
+    "updated_at": "2025-11-29T23:56:37.761Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 10,
+  "fields": {
+    "name": "Telkari Gümüş Bilezik",
+    "slug": "gumus-bilezik-4",
+    "category": 10,
+    "description": "Geleneksel telkari işçiliği ile özel olarak hazırlanmıştır.",
+    "metal_type": "silver",
+    "karat": "",
+    "weight": "20.00",
+    "price": "3200.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": false,
+    "is_best_seller": true,
+    "is_recommended": false,
+    "created_at": "2025-11-29T23:56:37.762Z",
+    "updated_at": "2025-11-29T23:56:37.762Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 11,
+  "fields": {
+    "name": "Lüks Pırlanta Bilezik",
+    "slug": "pirlanta-bilezik-5",
+    "category": 11,
+    "description": "18 ayar beyaz altın üzerine toplam 2.5 karat pırlanta.",
+    "metal_type": "white_gold",
+    "karat": "18",
+    "weight": "25.00",
+    "price": "85000.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": true,
+    "is_best_seller": false,
+    "is_recommended": true,
+    "created_at": "2025-11-29T23:56:37.763Z",
+    "updated_at": "2025-11-29T23:56:37.763Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 12,
+  "fields": {
+    "name": "Kalp Kolye",
+    "slug": "altin-kolye-6",
+    "category": 12,
+    "description": "14 ayar altın kalp uçlu kolye, romantik tasarım.",
+    "metal_type": "gold",
+    "karat": "14",
+    "weight": "3.50",
+    "price": "3800.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": false,
+    "is_best_seller": true,
+    "is_recommended": true,
+    "created_at": "2025-11-29T23:56:37.763Z",
+    "updated_at": "2025-11-29T23:56:37.763Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 13,
+  "fields": {
+    "name": "Zincir Kolye",
+    "slug": "altin-kolye-7",
+    "category": 12,
+    "description": "22 ayar altın ince zincir kolye.",
+    "metal_type": "gold",
+    "karat": "22",
+    "weight": "5.20",
+    "price": "6200.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": true,
+    "is_best_seller": false,
+    "is_recommended": false,
+    "created_at": "2025-11-29T23:56:37.763Z",
+    "updated_at": "2025-11-29T23:56:37.763Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 14,
+  "fields": {
+    "name": "Doğal İnci Kolye",
+    "slug": "inci-kolye-8",
+    "category": 13,
+    "description": "Güney denizi incisi ile hazırlanmış özel kolye.",
+    "metal_type": "white_gold",
+    "karat": "14",
+    "weight": "8.00",
+    "price": "12500.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": true,
+    "is_best_seller": true,
+    "is_recommended": false,
+    "created_at": "2025-11-29T23:56:37.764Z",
+    "updated_at": "2025-11-29T23:56:37.764Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 15,
+  "fields": {
+    "name": "Yakut Taşlı Kolye",
+    "slug": "tasli-kolye-9",
+    "category": 14,
+    "description": "Doğal yakut taşı ve rose altın kombinasyonu.",
+    "metal_type": "rose_gold",
+    "karat": "18",
+    "weight": "6.50",
+    "price": "22000.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": false,
+    "is_best_seller": false,
+    "is_recommended": true,
+    "created_at": "2025-11-29T23:56:37.764Z",
+    "updated_at": "2025-11-29T23:56:37.764Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 16,
+  "fields": {
+    "name": "Tek Taş Nişan Yüzüğü",
+    "slug": "nisan-yuzugu-10",
+    "category": 15,
+    "description": "1 karat pırlanta tek taş, 18 ayar beyaz altın.",
+    "metal_type": "white_gold",
+    "karat": "18",
+    "weight": "4.50",
+    "price": "45000.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": true,
+    "is_best_seller": true,
+    "is_recommended": true,
+    "created_at": "2025-11-29T23:56:37.765Z",
+    "updated_at": "2025-11-29T23:56:37.765Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 17,
+  "fields": {
+    "name": "Regal Nişan Yüzüğü",
+    "slug": "nisan-yuzugu-11",
+    "category": 15,
+    "description": "Merkez 0.75 karat ve etrafı taşlı özel tasarım.",
+    "metal_type": "white_gold",
+    "karat": "18",
+    "weight": "5.20",
+    "price": "38000.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": true,
+    "is_best_seller": false,
+    "is_recommended": false,
+    "created_at": "2025-11-29T23:56:37.765Z",
+    "updated_at": "2025-11-29T23:56:37.765Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 18,
+  "fields": {
+    "name": "Klasik Alyans Çifti",
+    "slug": "alyans-12",
+    "category": 16,
+    "description": "14 ayar sarı altın düz alyans modeli.",
+    "metal_type": "gold",
+    "karat": "14",
+    "weight": "8.00",
+    "price": "9200.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": false,
+    "is_best_seller": true,
+    "is_recommended": false,
+    "created_at": "2025-11-29T23:56:37.766Z",
+    "updated_at": "2025-11-29T23:56:37.766Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 19,
+  "fields": {
+    "name": "Taşlı Alyans Çifti",
+    "slug": "alyans-13",
+    "category": 16,
+    "description": "Kadın halkasında pırlanta detaylı alyans.",
+    "metal_type": "white_gold",
+    "karat": "14",
+    "weight": "9.50",
+    "price": "15000.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": false,
+    "is_best_seller": false,
+    "is_recommended": true,
+    "created_at": "2025-11-29T23:56:37.767Z",
+    "updated_at": "2025-11-29T23:56:37.767Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 20,
+  "fields": {
+    "name": "Zümrüt Yüzük",
+    "slug": "tasli-yuzuk-14",
+    "category": 17,
+    "description": "Kolombiya zümrütü ve pırlanta detaylı lüks yüzük.",
+    "metal_type": "gold",
+    "karat": "18",
+    "weight": "6.80",
+    "price": "32000.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": true,
+    "is_best_seller": false,
+    "is_recommended": false,
+    "created_at": "2025-11-29T23:56:37.767Z",
+    "updated_at": "2025-11-29T23:56:37.767Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 21,
+  "fields": {
+    "name": "Halka Küpe",
+    "slug": "altin-kupe-15",
+    "category": 18,
+    "description": "14 ayar altın klasik halka küpe.",
+    "metal_type": "gold",
+    "karat": "14",
+    "weight": "4.00",
+    "price": "4500.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": false,
+    "is_best_seller": true,
+    "is_recommended": false,
+    "created_at": "2025-11-29T23:56:37.767Z",
+    "updated_at": "2025-11-29T23:56:37.767Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 22,
+  "fields": {
+    "name": "Sallantılı Küpe",
+    "slug": "altin-kupe-16",
+    "category": 18,
+    "description": "18 ayar rose altın sallantılı model.",
+    "metal_type": "rose_gold",
+    "karat": "18",
+    "weight": "5.50",
+    "price": "6800.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": false,
+    "is_best_seller": false,
+    "is_recommended": true,
+    "created_at": "2025-11-29T23:56:37.768Z",
+    "updated_at": "2025-11-29T23:56:37.768Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 23,
+  "fields": {
+    "name": "Elmas Tektaş Küpe",
+    "slug": "elmas-kupe-17",
+    "category": 19,
+    "description": "Toplam 1 karat elmas, beyaz altın.",
+    "metal_type": "white_gold",
+    "karat": "18",
+    "weight": "3.20",
+    "price": "28000.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": true,
+    "is_best_seller": true,
+    "is_recommended": false,
+    "created_at": "2025-11-29T23:56:37.768Z",
+    "updated_at": "2025-11-29T23:56:37.768Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 24,
+  "fields": {
+    "name": "İnci Damla Küpe",
+    "slug": "inci-kupe-18",
+    "category": 20,
+    "description": "Doğal inci damla küpe, zarif tasarım.",
+    "metal_type": "white_gold",
+    "karat": "14",
+    "weight": "4.50",
+    "price": "8500.00",
+    "stock_code": null,
+    "image": "",
+    "is_available": true,
+    "is_featured": false,
+    "is_best_seller": false,
+    "is_recommended": true,
+    "created_at": "2025-11-29T23:56:37.769Z",
+    "updated_at": "2025-11-29T23:56:37.769Z"
+  }
+}
+]

@@ -30,6 +30,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),  # Gizli admin URL
     path("api/", include(router.urls)),
     path("api/exchange-rates/", exchange_rates, name="exchange_rates"),
+    path("api/products/", ProductViewSet.as_view({'get': 'list'}), name="product-list"),
+    path("api/products/<int:pk>/", ProductViewSet.as_view({'get': 'retrieve'}), name="product-detail"),
 ]
 
 if settings.DEBUG:
