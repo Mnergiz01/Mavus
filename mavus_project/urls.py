@@ -19,28 +19,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from django.http import JsonResponse
 from rest_framework.routers import DefaultRouter
 from products.api_views import CategoryViewSet, ProductViewSet, exchange_rates
-
-def home_view(request):
-    return JsonResponse({
-        'message': 'Mavus Kuyumculuk API',
-        'frontend': 'http://localhost:5176/',
-        'admin': 'http://127.0.0.1:8000/admin/',
-        'endpoints': {
-            'products': 'http://127.0.0.1:8000/api/products/',
-            'categories': 'http://127.0.0.1:8000/api/categories/',
-        }
-    })
 
 router = DefaultRouter()
 router.register(r'categories', CategoryViewSet, basename='category')
 router.register(r'products', ProductViewSet, basename='product')
 
 urlpatterns = [
-    path("", home_view, name="home"),
-    path("admin/", admin.site.urls),
+    path("admin/", admin.site.urls),  # Gizli admin URL
     path("api/", include(router.urls)),
     path("api/exchange-rates/", exchange_rates, name="exchange_rates"),
 ]

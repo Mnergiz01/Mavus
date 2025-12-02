@@ -1,0 +1,23 @@
+# Gunicorn systemd service file
+# Place this file at: /etc/systemd/system/gunicorn.service
+
+[Unit]
+Description=Gunicorn daemon for Mavus Django application
+After=network.target
+
+[Service]
+Type=notify
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/mavus
+Environment="PATH=/var/www/mavus/venv/bin"
+ExecStart=/var/www/mavus/venv/bin/gunicorn \
+          --config /var/www/mavus/gunicorn_config.py \
+          mavus_project.wsgi:application
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=mixed
+TimeoutStopSec=5
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

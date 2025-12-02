@@ -212,6 +212,16 @@
           >
             Hakkımızda
           </router-link>
+
+          <!-- Admin Panel - Desktop Only -->
+          <a
+            href="http://127.0.0.1:8000/admin/"
+            target="_blank"
+            class="flex items-center space-x-2 px-4 py-2 bg-amber-600 text-white rounded-lg font-medium text-sm transition-all duration-300 hover:bg-amber-700 hover:shadow-lg"
+          >
+            <ShieldCheckIcon class="h-4 w-4" />
+            <span>Admin</span>
+          </a>
         </nav>
       </div>
 
@@ -381,18 +391,6 @@
             <span>Hakkımızda</span>
           </router-link>
 
-          <!-- Divider -->
-          <div class="border-t border-gray-200 my-4"></div>
-
-          <!-- Admin Panel -->
-          <a
-            href="http://127.0.0.1:8000/admin/"
-            target="_blank"
-            class="flex items-center justify-center space-x-2 px-4 py-3 bg-amber-600 text-white rounded-lg font-semibold transition-all duration-300 hover:bg-amber-700"
-          >
-            <ShieldCheckIcon class="h-5 w-5" />
-            <span>Admin Panel</span>
-          </a>
         </div>
       </nav>
     </div>
@@ -407,7 +405,8 @@ import {
   ChevronDownIcon,
   ShoppingBagIcon,
   StarIcon,
-  ShieldCheckIcon
+  ShieldCheckIcon,
+  SparklesIcon
 } from '@heroicons/vue/24/outline'
 import { useProducts } from '../composables/useProducts'
 

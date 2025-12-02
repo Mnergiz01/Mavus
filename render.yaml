@@ -1,0 +1,43 @@
+services:
+  # Django Backend
+  - type: web
+    name: mavus-backend
+    env: python
+    region: frankfurt  # or oregon for US
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn mavus_project.wsgi:application"
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: ALLOWED_HOSTS
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mavus-db
+          property: connectionString
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+
+  # PostgreSQL Database
+  - type: pserv
+    name: mavus-db
+    env: docker
+    plan: free
+    region: frankfurt
+    image: postgres:15
+    disk:
+      name: mavus-data
+      mountPath: /var/lib/postgresql/data
+      sizeGB: 1
+    envVars:
+      - key: POSTGRES_USER
+        value: mavus_user
+      - key: POSTGRES_PASSWORD
+        generateValue: true
+      - key: POSTGRES_DB
+        value: mavus_production
