@@ -37,7 +37,7 @@
             <div class="absolute -inset-4 bg-gradient-to-r from-amber-400 to-amber-600 rounded-3xl opacity-20 group-hover:opacity-30 transition-opacity blur-xl"></div>
             <div class="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&h=600&fit=crop"
+                src="/hakkımızda.jpeg"
                 alt="Mawuş Kuyumculuk Mağaza"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />

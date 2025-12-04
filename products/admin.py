@@ -7,7 +7,7 @@ from .models import Category, Product, ProductImage
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
     extra = 1
-    fields = ('image', 'alt_text', 'is_video', 'order')
+    fields = ('image', 'image_file', 'alt_text', 'is_video', 'order')
 
 
 def setup_production_data(modeladmin, request, queryset):
@@ -42,7 +42,8 @@ class CategoryAdmin(admin.ModelAdmin):
             'fields': ('name', 'slug', 'parent', 'description')
         }),
         ('Görsel', {
-            'fields': ('image',)
+            'fields': ('image', 'image_file'),
+            'description': 'URL veya dosya yükleyerek resim ekleyebilirsiniz. Dosya önceliklidir.'
         }),
     )
 
@@ -67,7 +68,8 @@ class ProductAdmin(admin.ModelAdmin):
             'fields': ('price', 'stock_code')
         }),
         ('Resim', {
-            'fields': ('image',)
+            'fields': ('image', 'image_file'),
+            'description': 'URL veya dosya yükleyerek resim ekleyebilirsiniz. Dosya önceliklidir.'
         }),
         ('Durum', {
             'fields': ('is_available', 'is_featured', 'is_best_seller', 'is_recommended')
