@@ -148,25 +148,29 @@ MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 # Cloudinary Configuration (for production file uploads on Render)
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
-
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default=''),
     'API_KEY': config('CLOUDINARY_API_KEY', default=''),
     'API_SECRET': config('CLOUDINARY_API_SECRET', default=''),
 }
 
-# Use Cloudinary for media files in production
+# Use Cloudinary for media files in production (if configured)
 if not DEBUG and CLOUDINARY_STORAGE['CLOUD_NAME']:
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-    cloudinary.config(
-        cloud_name=CLOUDINARY_STORAGE['CLOUD_NAME'],
-        api_key=CLOUDINARY_STORAGE['API_KEY'],
-        api_secret=CLOUDINARY_STORAGE['API_SECRET'],
-        secure=True
-    )
+    try:
+        import cloudinary
+        import cloudinary.uploader
+        import cloudinary.api
+
+        DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+        cloudinary.config(
+            cloud_name=CLOUDINARY_STORAGE['CLOUD_NAME'],
+            api_key=CLOUDINARY_STORAGE['API_KEY'],
+            api_secret=CLOUDINARY_STORAGE['API_SECRET'],
+            secure=True
+        )
+    except ImportError:
+        # Cloudinary not installed, use local storage
+        pass
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
