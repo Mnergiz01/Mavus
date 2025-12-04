@@ -89,7 +89,7 @@
               </div>
               <div>
                 <p class="text-xs text-slate-500 mb-1">Telefon</p>
-                <a href="tel:+903442154651" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">+90 (344) 215 46 51</a>
+                <a href="tel:+903442154651" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">+90 (545) 240 94 90</a>
               </div>
             </li>
           
