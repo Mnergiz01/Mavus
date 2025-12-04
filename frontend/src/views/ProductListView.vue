@@ -137,8 +137,8 @@
           <!-- Product Image -->
           <div class="aspect-square bg-gradient-to-br from-amber-50 via-white to-slate-50 overflow-hidden relative">
             <img
-              v-if="product.image"
-              :src="product.image"
+              v-if="product.image_url || product.image"
+              :src="product.image_url || product.image"
               :alt="product.name"
               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />

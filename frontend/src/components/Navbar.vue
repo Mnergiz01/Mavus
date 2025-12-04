@@ -158,8 +158,8 @@
                       <!-- Category Image -->
                       <div class="aspect-square overflow-hidden bg-gradient-to-br from-amber-50 via-gray-50 to-slate-50 relative">
                         <img
-                          v-if="child.image"
-                          :src="child.image"
+                          v-if="child.image_url || child.image"
+                          :src="child.image_url || child.image"
                           :alt="child.name"
                           class="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-700 ease-out"
                         />

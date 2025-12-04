@@ -126,11 +126,17 @@ const hasVideos = computed(() => {
 
 // Current image to display (main image or first additional image)
 const currentImage = computed(() => {
+  // Use image_url if available (supports both URL and file uploads)
+  if (props.product.image_url) {
+    return props.product.image_url
+  }
+  // Fallback to old image field for backwards compatibility
   if (props.product.image) {
     return props.product.image
   }
+  // Check additional images
   if (props.product.images && props.product.images.length > 0) {
-    return props.product.images[0].image
+    return props.product.images[0].image_url || props.product.images[0].image
   }
   return null
 })

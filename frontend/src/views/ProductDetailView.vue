@@ -219,16 +219,20 @@ const allImages = computed(() => {
   if (!product.value) return []
   const images = []
 
-  // Ana görsel
-  if (product.value.image) {
-    images.push({ url: product.value.image, type: 'image', alt: product.value.name })
+  // Ana görsel (image_url supports both URL and file uploads)
+  if (product.value.image_url || product.value.image) {
+    images.push({
+      url: product.value.image_url || product.value.image,
+      type: 'image',
+      alt: product.value.name
+    })
   }
 
   // Ek görseller ve videolar
   if (product.value.images && product.value.images.length > 0) {
     product.value.images.forEach(img => {
       images.push({
-        url: img.image,
+        url: img.image_url || img.image,
         type: img.is_video ? 'video' : 'image',
         alt: img.alt_text || product.value.name
       })
